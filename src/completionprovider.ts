@@ -3,6 +3,7 @@ import {
     CompletionItem,
     CompletionItemKind,
     CompletionItemProvider,
+    SnippetString,
     Position,
     Range,
     TextDocument,
@@ -16,6 +17,32 @@ export class CompletionProvider implements CompletionItemProvider {
 
     constructor(language: string) {
         this.language = language;
+    }
+
+    private itemTypeToCompletionItemKind(inType: string) : CompletionItemKind
+    {
+        switch(inType){
+            case 'Property':
+                return CompletionItemKind.Property;
+            case 'Event':
+                return CompletionItemKind.Event;
+            case 'Namespace':
+                return CompletionItemKind.Module;
+            default:
+                return CompletionItemKind.Class;
+        }
+    }
+
+    private suggestionToCompletionItem(suggestionItem) : CompletionItem
+    {
+        const kind = this.itemTypeToCompletionItemKind(suggestionItem.Type);
+        const out = new CompletionItem(suggestionItem.Suggestion, kind);
+        out.detail = suggestionItem.Type;
+        if(kind==CompletionItemKind.Property)
+        {
+            out.insertText = new SnippetString(out.label+'="$1"');
+        }
+        return out;
     }
 
     public provideCompletionItems(
@@ -48,12 +75,7 @@ export class CompletionProvider implements CompletionItemProvider {
                         return [];
                     }
 
-                    return result.CodeSuggestions.map((item => {
-                        const kind = CompletionItemKind[item.Type]
-
-                        //return new CompletionItem(item.Suggestion, kind);
-                        return new CompletionItem(item.Suggestion);
-                    }));
+                    return result.CodeSuggestions.map(item => this.suggestionToCompletionItem(item));
                 }
 
                 return [];
