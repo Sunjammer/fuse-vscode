@@ -126,6 +126,8 @@
 		    </array>
 		</dict-->
 		<dict>
+			<key>name</key>
+			<string>meta.tag.preprocessor.xml</string>
 			<key>begin</key>
 			<string>(&lt;\/?)\s*([-_a-zA-Z0-9]+\.)?((Navigator|PageControl|Router)|([-_a-zA-Z0-9]+))</string>
 			<key>beginCaptures</key>
@@ -153,8 +155,14 @@
 			</dict>
 			<key>end</key>
 			<string>(\/?&gt;)</string>
-			<key>name</key>
-			<string>meta.tag.preprocessor.xml</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.end.xml</string>
+				</dict>
+			</dict>
 			<key>patterns</key>
 			<array>
 				<dict>
