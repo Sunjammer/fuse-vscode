@@ -16,9 +16,11 @@
 	<string>UX</string>
 	<key>patterns</key>
 	<array>
-		<!-- dict>
+		<dict>
+		    <key>name</key>
+		    <string>source.js.embedded.ux</string>
 		    <key>begin</key>
-		    <string>(?:^\s+)?(&lt;)((?i:(JavaScript)))\b(?![^&gt;]*/&gt;)</string>
+		    <string>(&lt;)\s*(JavaScript)\s*(&gt;)</string>
 		    <key>beginCaptures</key>
 		    <dict>
 		        <key>1</key>
@@ -31,105 +33,49 @@
 		            <key>name</key>
 		            <string>entity.name</string>
 		        </dict>
-		    </dict>
-		    <key>end</key>
-		    <string>(?&lt;=&lt;/(JavaScript))(&gt;)(?:\s*\n)?</string>
-		    <key>endCaptures</key>
-		    <dict>
-		    	<key>1</key>
-		    	<dict>
-		    	    <key>name</key>
-		    	    <string>entity.name</string>
-		    	</dict>
-		        <key>2</key>
+		        <key>3</key>
 		        <dict>
 		            <key>name</key>
 		            <string>punctuation.definition.tag.end.xml</string>
 		        </dict>
 		    </dict>
-		    <key>name</key>
-		    <string>source.js.embedded.html</string>
+		    <key>end</key>
+		    <string>(&lt;\/)\s*(JavaScript)\s*(&gt;)</string>
+		    <key>endCaptures</key>
+		    <dict>
+		        <key>1</key>
+		        <dict>
+		            <key>name</key>
+		            <string>punctuation.definition.tag.end.xml</string>
+		        </dict>
+		    	<key>2</key>
+		    	<dict>
+		    	    <key>name</key>
+		    	    <string>entity.name</string>
+		    	</dict>
+				<key>3</key>
+		        <dict>
+		            <key>name</key>
+		            <string>punctuation.definition.tag.end.xml</string>
+		        </dict>
+		    </dict>
 		    <key>patterns</key>
 		    <array>
 		        <dict>
 		            <key>include</key>
 		            <string>#tag-stuff</string>
 		        </dict>
-		        <dict>
-		            <key>begin</key>
-		            <string>(?&lt;!&lt;/(?:JavaScript))(&gt;)</string>
-		            <key>captures</key>
-		            <dict>
-		                <key>1</key>
-		                <dict>
-		                    <key>name</key>
-		                    <string>punctuation.definition.tag.end.js</string>
-		                </dict>
-		            </dict>
-		            <key>end</key>
-		            <string>(&lt;/)((?i:JavaScript))</string>
-		            <key>endCaptures</key>
-		            <dict>
-		                <key>1</key>
-		                <dict>
-		                    <key>name</key>
-		                    <string>punctuation.definition.tag.begin.xml</string>
-		                </dict>
-		                <key>2</key>
-		                <dict>
-		                    <key>name</key>
-		                    <string>entity.name</string>
-		                </dict>
-		            </dict>
-		            <key>patterns</key>
-		            <array>
-		                <dict>
-		                    <key>captures</key>
-		                    <dict>
-		                        <key>1</key>
-		                        <dict>
-		                            <key>name</key>
-		                            <string>punctuation.definition.comment.js</string>
-		                        </dict>
-		                    </dict>
-		                    <key>match</key>
-		                    <string>(//).*?((?=&lt;/(JavaScript))|$\n?)</string>
-		                    <key>name</key>
-		                    <string>comment.line.double-slash.js</string>
-		                </dict>
-		                <dict>
-		                    <key>begin</key>
-		                    <string>/\*</string>
-		                    <key>captures</key>
-		                    <dict>
-		                        <key>0</key>
-		                        <dict>
-		                            <key>name</key>
-		                            <string>punctuation.definition.comment.js</string>
-		                        </dict>
-		                    </dict>
-		                    <key>end</key>
-		                    <string>\*/|(?=&lt;/(JavaScript))</string>
-		                    <key>name</key>
-		                    <string>comment.block.js</string>
-		                </dict>
-		                <dict>
-		                    <key>include</key>
-		                    <string>#php</string>
-		                </dict>
-		                <dict>
-		                    <key>include</key>
-		                    <string>source.js</string>
-		                </dict>
-		            </array>
-		        </dict>
+				<dict>
+					<key>include</key>
+					<string>source.js</string>
+				</dict>
 		    </array>
-		</dict-->
+		</dict>
 		<dict>
 			<key>name</key>
 			<string>meta.tag.preprocessor.xml</string>
 			<key>begin</key>
-			<string>(&lt;\/?)\s*([-_a-zA-Z0-9]+\.)?((Navigator|PageControl|Router)|([-_a-zA-Z0-9]+))</string>
+			<string>(&lt;\/?)\s*([-_a-zA-Z0-9]+\.)?((JavaScript)|(Navigator|PageControl|Router)|([-_a-zA-Z0-9]+))</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -145,9 +91,14 @@
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>constant.numeric</string>
+					<string>entity.name</string>
 				</dict>
 				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric</string>
+				</dict>
+				<key>6</key>
 				<dict>
 					<key>name</key>
 					<string>entity.name.tag.localname.xml</string>
