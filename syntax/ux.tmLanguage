@@ -29,7 +29,7 @@
 		        <key>2</key>
 		        <dict>
 		            <key>name</key>
-		            <string>entity.name.tag.localname.xml</string>
+		            <string>entity.name</string>
 		        </dict>
 		    </dict>
 		    <key>end</key>
@@ -39,7 +39,7 @@
 		    	<key>1</key>
 		    	<dict>
 		    	    <key>name</key>
-		    	    <string>entity.name.tag.localname.xml</string>
+		    	    <string>entity.name</string>
 		    	</dict>
 		        <key>2</key>
 		        <dict>
@@ -78,7 +78,7 @@
 		                <key>2</key>
 		                <dict>
 		                    <key>name</key>
-		                    <string>entity.name.tag.localname.xml</string>
+		                    <string>entity.name</string>
 		                </dict>
 		            </dict>
 		            <key>patterns</key>
