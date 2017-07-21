@@ -229,7 +229,7 @@
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag.namespace.xml</string>
+					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
 				<key>4</key>
 				<dict>
@@ -269,7 +269,7 @@
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag.namespace.xml</string>
+					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
 				<key>5</key>
 				<dict>
@@ -315,7 +315,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag.namespace.xml</string>
+					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
 				<key>3</key>
 				<dict>
@@ -680,7 +680,7 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>entity.other.attribute-name.namespace.xml</string>
+							<string>punctuation.definition.tag.begin.xml</string>
 						</dict>
 						<key>2</key>
 						<dict>
