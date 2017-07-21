@@ -16,7 +16,7 @@
 	<string>UX</string>
 	<key>patterns</key>
 	<array>
-		<dict>
+		<!-- dict>
 		    <key>begin</key>
 		    <string>(?:^\s+)?(&lt;)((?i:(JavaScript)))\b(?![^&gt;]*/&gt;)</string>
 		    <key>beginCaptures</key>
@@ -124,34 +124,42 @@
 		            </array>
 		        </dict>
 		    </array>
-		</dict>
+		</dict-->
 		<dict>
 			<key>begin</key>
-			<string>(&lt;\?)\s*([-_a-zA-Z0-9]+)</string>
-			<key>captures</key>
+			<string>(&lt;\/?)\s*([-_a-zA-Z0-9]+\.)?((PageControl)|([-_a-zA-Z0-9]+))</string>
+			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
-				<dict>
+				<dict> <!-- chars -->
 					<key>name</key>
 					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
 				<key>2</key>
+				<dict> <!-- Namespace -->
+					<key>name</key>
+					<string>punctuation.definition.tag.begin.xml</string>
+				</dict>
+				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag.xml</string>
+					<string>entity.name.tag.localname.ux</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.localname.xml</string>
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>(\?&gt;)</string>
+			<string>(\/?&gt;)</string>
 			<key>name</key>
 			<string>meta.tag.preprocessor.xml</string>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>match</key>
-					<string> ([a-zA-Z-]+)</string>
-					<key>name</key>
-					<string>entity.other.attribute-name.xml</string>
+					<key>include</key>
+					<string>#xml-attribute</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -167,7 +175,7 @@
 				</dict>
 			</array>
 		</dict>
-		<dict>
+		<!-- dict>
 			<key>begin</key>
 			<string>(&lt;!)(DOCTYPE)\s+([:a-zA-Z_][:a-zA-Z0-9_.-]*)</string>
 			<key>captures</key>
@@ -199,7 +207,7 @@
 					<string>#internalSubset</string>
 				</dict>
 			</array>
-		</dict>
+		</dict -->
 		<dict>
 			<key>begin</key>
 			<string>&lt;[!%]--</string>
@@ -216,7 +224,7 @@
 			<key>name</key>
 			<string>comment.block.xml</string>
 		</dict>
-		<dict>
+		<!-- dict>
 			<key>begin</key>
 			<string>(&lt;)((?:([-_a-zA-Z0-9]+)((:)))?([-_a-zA-Z0-9:]+))(?=(\s[^&gt;]*)?&gt;&lt;/\2&gt;)</string>
 			<key>beginCaptures</key>
@@ -301,8 +309,8 @@
 					<string>#tagStuff</string>
 				</dict>
 			</array>
-		</dict>
-		<dict>
+		</dict-->
+		<!-- dict>
 			<key>begin</key>
 			<string>(&lt;/?)(?:([-_a-zA-Z0-9]+)(([:\.])))?([-_a-zA-Z0-9:\.]+)</string>
 			<key>captures</key>
@@ -352,7 +360,7 @@
 					<string>#tagStuff</string>
 				</dict>
 			</array>
-		</dict>
+		</dict -->
 		<dict>
 			<key>include</key>
 			<string>#entity</string>
@@ -452,6 +460,26 @@
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>xml-attribute</key>
+		<dict>
+			<key>match</key>
+			<string> ([a-zA-Z-]+:)?([a-zA-Z-]+)</string>
+			<key>name</key>
+			<string>entity.other.attribute-name.xml</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>attribnamespace</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>attribute</string>
+				</dict>
+			</dict>
+		</dict>
 		<key>ux-expression</key>
 		<dict>
 			<key>name</key>
