@@ -155,6 +155,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#ux-expression</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#doublequotedString</string>
 				</dict>
 				<dict>
@@ -448,6 +452,31 @@
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>ux-expression</key>
+		<dict>
+			<key>name</key>
+			<string>entity.name.function</string>
+			<key>begin</key>
+			<string>"{</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>meta.brace.curly</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>}"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>meta.brace.curly</string>
+				</dict>
+			</dict>
+		</dict>
 		<key>EntityDecl</key>
 		<dict>
 			<key>begin</key>
@@ -671,6 +700,10 @@
 					</dict>
 					<key>match</key>
 					<string> (?:([-_a-zA-Z0-9]+)((:)))?([-_a-zA-Z0-9]+)=</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#ux-expression</string>
 				</dict>
 				<dict>
 					<key>include</key>
