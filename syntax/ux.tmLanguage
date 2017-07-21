@@ -127,23 +127,23 @@
 		</dict-->
 		<dict>
 			<key>begin</key>
-			<string>(&lt;\/?)\s*([-_a-zA-Z0-9]+\.)?((PageControl)|([-_a-zA-Z0-9]+))</string>
+			<string>(&lt;\/?)\s*([-_a-zA-Z0-9]+\.)?((Navigator|PageControl|Router)|([-_a-zA-Z0-9]+))</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
-				<dict> <!-- chars -->
+				<dict>
 					<key>name</key>
 					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
 				<key>2</key>
-				<dict> <!-- Namespace -->
+				<dict>
 					<key>name</key>
 					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag.localname.ux</string>
+					<string>constant.numeric</string>
 				</dict>
 				<key>5</key>
 				<dict>
@@ -175,39 +175,6 @@
 				</dict>
 			</array>
 		</dict>
-		<!-- dict>
-			<key>begin</key>
-			<string>(&lt;!)(DOCTYPE)\s+([:a-zA-Z_][:a-zA-Z0-9_.-]*)</string>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.tag.begin.xml</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.doctype.xml</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>variable.documentroot.xml</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\s*(&gt;)</string>
-			<key>name</key>
-			<string>meta.tag.sgml.doctype.xml</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#internalSubset</string>
-				</dict>
-			</array>
-		</dict -->
 		<dict>
 			<key>begin</key>
 			<string>&lt;[!%]--</string>
@@ -224,143 +191,6 @@
 			<key>name</key>
 			<string>comment.block.xml</string>
 		</dict>
-		<!-- dict>
-			<key>begin</key>
-			<string>(&lt;)((?:([-_a-zA-Z0-9]+)((:)))?([-_a-zA-Z0-9:]+))(?=(\s[^&gt;]*)?&gt;&lt;/\2&gt;)</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.tag.begin.xml</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.tag.begin.xml</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.tag.xml</string>
-				</dict>
-				<key>5</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.separator.namespace.xml</string>
-				</dict>
-				<key>6</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.tag.localname.xml</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(&gt;)(&lt;)(/)(?:([-_a-zA-Z0-9]+)((:)))?([-_a-zA-Z0-9:]+)(&gt;)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.tag.end.xml</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.tag.begin.xml meta.scope.between-tag-pair.xml</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.tag.begin.xml</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.tag.begin.xml</string>
-				</dict>
-				<key>5</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.tag.xml</string>
-				</dict>
-				<key>6</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.separator.namespace.xml</string>
-				</dict>
-				<key>7</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.tag.localname.xml</string>
-				</dict>
-				<key>8</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.tag.end.xml</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>meta.tag.no-content.xml</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#tagStuff</string>
-				</dict>
-			</array>
-		</dict-->
-		<!-- dict>
-			<key>begin</key>
-			<string>(&lt;/?)(?:([-_a-zA-Z0-9]+)(([:\.])))?([-_a-zA-Z0-9:\.]+)</string>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.tag.begin.xml</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.tag.begin.xml</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.tag.xml</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.separator.namespace.xml</string>
-				</dict>
-				<key>5</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.tag.localname.xml</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(/?&gt;)</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.tag.end.xml</string>
-				</dict>
-			</dict>
-			<key>name</key>
-			<string>meta.tag.xml</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#tagStuff</string>
-				</dict>
-			</array>
-		</dict -->
 		<dict>
 			<key>include</key>
 			<string>#entity</string>
@@ -471,12 +301,12 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>attribnamespace</string>
+					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>attribute</string>
+					<string>entity.other.attribute-name.xml</string>
 				</dict>
 			</dict>
 		</dict>
