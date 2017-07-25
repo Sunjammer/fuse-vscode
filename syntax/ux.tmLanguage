@@ -31,7 +31,7 @@
 		        <key>2</key>
 		        <dict>
 		            <key>name</key>
-		            <string>entity.name</string>
+		            <string>entity.name.tag.data.ux</string>
 		        </dict>
 		        <key>3</key>
 		        <dict>
@@ -51,7 +51,7 @@
 		    	<key>2</key>
 		    	<dict>
 		    	    <key>name</key>
-		    	    <string>entity.name</string>
+		    	    <string>entity.name.tag.data.ux</string>
 		    	</dict>
 				<key>3</key>
 		        <dict>
@@ -75,7 +75,7 @@
 			<key>name</key>
 			<string>meta.tag.preprocessor.xml</string>
 			<key>begin</key>
-			<string>(&lt;\/?)\s*([-_a-zA-Z0-9]+\.)?((JavaScript)|(Navigator|PageControl|Router)|([-_a-zA-Z0-9]+))</string>
+			<string>(&lt;\/?)\s*([-_a-zA-Z0-9]+\.)?((Selectable|Selection)|(JavaScript|Each|Match|Case|With)|(Navigator|Page[a-zA-Z0-9]*|Router)|(Panel|StackPanel|DockPanel|Grid|WrapPanel|ColumnLayout|CircleLayout|ScrollView)|(Button|TextInput|TextView|Slider|Switch|CameraView|MapView|WebView|NativeViewHost|GraphicsView|Image|Video)|(While[A-Za-z]*|On[A-Za-z]*|[A-Z]+[A-Za-z]*Animation|[A-Z]+[A-Za-z]*Triggered|Transition|Activated|Android|Clicked|Completed|ContainingText|Deactivated|Deselected|DoubleClicked|DoubleTapped|EnteredForceField|ExitedForceField|InteractionCompleted|iOS|LongPressed|PageBeginLoading|PageLoaded|Pressed|PullToReload|Released|Scrolled|Selected|Select|State|Swiped|Tapped|Timeline)|(BringIntoView|BringToFront|Callback|Call|CancelInteractions|Collapse|DebugAction|EvaluateJS|GiveFocus|GoBack|GoForward|Hide|LaunchEmail|LaunchMaps|LaunchUri|LoadHtml|LoadUrl|NavigateTo|NavigateToggle|Pause|Play|PlaySound|PlayTo|Pulse|PulseForward|PulseBackward|RaiseUserEvent|ReleaseFocus|ReleasePage|Reload|Resume|RouterCancelNavigation|RouterModify|ScrollableGoto|ScrollTo|SendToBack|Set|SetSwipeActive|Show|Stop|StopLoading|TimelineAction|ToggleSelection|ToggleSwipeActive|TransitionLayout|TransitionState|Vibrate|Toggle)|(object|double[234]?|float[234]?|string|bool)|([-_a-zA-Z0-9]+))</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -88,17 +88,47 @@
 					<key>name</key>
 					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
-				<key>4</key>
+				<key>3</key> <!-- Keywords (gulp) -->
 				<dict>
 					<key>name</key>
-					<string>entity.name</string>
+					<string>entity.name.tag.other.ux</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>constant.numeric</string>
+					<string>entity.name.tag.data.ux</string>
 				</dict>
 				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.navigation.ux</string>
+				</dict>
+				<key>7</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.layout.ux</string>
+				</dict>
+				<key>8</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.controls.ux</string>
+				</dict>
+				<key>9</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.triggers.ux</string>
+				</dict>
+				<key>10</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.actions.ux</string>
+				</dict>
+				<key>11</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type</string>
+				</dict>
+				<key>12</key> <!-- End keywords -->
 				<dict>
 					<key>name</key>
 					<string>entity.name.tag.localname.xml</string>
@@ -122,7 +152,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#ux-expression</string>
+					<string>#ux-binding</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -252,29 +282,34 @@
 		<key>xml-attribute</key>
 		<dict>
 			<key>match</key>
-			<string> ([a-zA-Z-]+:)?([a-zA-Z-]+)</string>
+			<string> (([a-zA-Z-]+:)|([a-zA-Z-]+\.))?([a-zA-Z-]+)</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.xml</string>
 			<key>captures</key>
 			<dict>
-				<key>1</key>
+				<key>2</key>
 				<dict>
 					<key>name</key>
 					<string>punctuation.definition.tag.begin.xml</string>
 				</dict>
-				<key>2</key>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name</string>
+				</dict>
+				<key>4</key>
 				<dict>
 					<key>name</key>
 					<string>entity.other.attribute-name.xml</string>
 				</dict>
 			</dict>
 		</dict>
-		<key>ux-expression</key>
+		<key>ux-binding</key>
 		<dict>
 			<key>name</key>
 			<string>entity.name.function</string>
 			<key>begin</key>
-			<string>"{</string>
+			<string>{</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -284,7 +319,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>}"</string>
+			<string>}</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
@@ -340,13 +375,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>bare-ampersand</key>
-		<dict>
-			<key>match</key>
-			<string>&amp;</string>
-			<key>name</key>
-			<string>invalid.illegal.bad-ampersand.xml</string>
-		</dict>
 		<key>doublequotedString</key>
 		<dict>
 			<key>begin</key>
@@ -373,6 +401,10 @@
 			<string>string.quoted.double.xml</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#ux-binding</string>
+				</dict>
 				<dict>
 					<key>include</key>
 					<string>#entity</string>
@@ -520,7 +552,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#ux-expression</string>
+					<string>#ux-binding</string>
 				</dict>
 				<dict>
 					<key>include</key>
